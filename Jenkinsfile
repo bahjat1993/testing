@@ -10,7 +10,7 @@ pipeline{
         println currentBuild.result  // this prints null
         step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: 'khanbahjat@hotmail.com', sendToIndividuals: true])
     }
-                      )
+ 
 
             }
         }
