@@ -5,8 +5,13 @@ pipeline{
             steps {
                 echo 'hello world'
                 bat label: '', script: 'python python_test.py'
-                mail to: 'khanbahjat@Hotmail.com', subject: 'New build is waiting for your decision', body: 'Please make your decision about new build in Jenkins!'
+                
             }
+        }
+    }
+    post {
+        failure{
+            mail to: 'khanbahjat@Hotmail.com', subject: 'New build is waiting for your decision', body: 'Please make your decision about new build in Jenkins!'
         }
     }
 }
