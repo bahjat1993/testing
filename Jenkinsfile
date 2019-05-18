@@ -21,7 +21,7 @@ pipeline{
     post{
         always{
 		
-		junit '/target/*.xml'
+		junit 'tests/results/*.xml'
 
 				
 		echo "${version_stuff}"
