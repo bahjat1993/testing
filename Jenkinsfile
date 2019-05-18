@@ -2,7 +2,7 @@ pipeline{
     agent any
      environment {
         test = 'khanbahjat@Hotmail.com'
-         FILENAME = "none"
+         FILENAME = "not set"
     }
     stages{
         stage('Stage 1'){
@@ -11,7 +11,7 @@ pipeline{
                 bat label: '', script: 'python python_test.py'
                 echo "${env.FILENAME}"
                  script {
-                    env.FILENAME = readFile 'output.txt'
+                     echo ${readFile 'output.txt'}
                  }
                 echo "${env.FILENAME}"
                 
