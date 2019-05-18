@@ -8,8 +8,9 @@ pipeline{
                 
                 script {
                 version_stuff = readFile ('output.txt')
-                 echo "${version_stuff}"
                 }
+                 echo "${version_stuff}"
+
                
                 
             }
