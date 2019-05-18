@@ -23,13 +23,12 @@ pipeline{
 		script {	
 		emailext body: '''${SCRIPT, template="build-report.groovy"}''',
 		
+			}
 		echo "${SCRIPT}"
 		
 		//mail to: "${version_stuff}", subject: 'New build is waiting for your decision', body: "{$BUILD_LOG}"
 
         }
     }
-
-}
 
 }
