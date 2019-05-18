@@ -20,7 +20,16 @@ pipeline{
     post{
         always{
 		echo "${version_stuff}"
-		mail to: "${version_stuff}", subject: 'New build is waiting for your decision', body: "{$BUILD_LOG}"
+		
+		        stage('Email')
+        {
+            env.ForEmailPlugin = env.WORKSPACE      
+            emailext attachmentsPattern: 'TestResults\\*.trx',      
+            body: '''${SCRIPT, template="groovy_html.template"}''', 
+            subject: currentBuild.currentResult + " : " + env.JOB_NAME, 
+            to: 'khanbahjat@Hotmail.com'
+        }
+
         }
     }
 
