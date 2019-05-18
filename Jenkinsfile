@@ -8,12 +8,7 @@ pipeline{
                 script {
                 version_stuff = readFile('output.txt').trim()
                 }
-                               script {
-                    def bRun = build 'anotherJob' 
-                    echo 'last 100 lines of BuildB'
-                    for(String line : bRun.getRawBuild().getLog(100)){
-                        echo line
-                    }
+
                  
 
                
@@ -24,6 +19,14 @@ pipeline{
 	}
     post{
         always{
+		
+	                               script {
+                    def bRun = build 'Stage 1' 
+                    echo 'last 100 lines of BuildB'
+                    for(String line : bRun.getRawBuild().getLog(100)){
+                        echo line
+                    }
+		
             echo "${version_stuff}"
             mail to: "${version_stuff}", subject: 'New build is waiting for your decision', body: 'Please make your decision about new build in Jenkins!'
         }
