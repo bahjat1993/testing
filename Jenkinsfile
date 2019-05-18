@@ -8,12 +8,6 @@ pipeline{
                 script {
                 version_stuff = readFile('output.txt').trim()
                 }
-		  
-
-                 
-
-               
-                
             }
         }
     }
@@ -21,8 +15,7 @@ pipeline{
     post{
         always{
 		
-		junit '*.xml'
-
+junit 'build/reports/**/*.xml'
 				
 		echo "${version_stuff}"
 //		mail to: "${version_stuff}", subject: 'New build is waiting for your decision', body: "Stuff"
