@@ -20,7 +20,7 @@ pipeline{
     post{
         always{
 		echo "${version_stuff}"
-		mail to: "${version_stuff}", subject: 'New build is waiting for your decision', body: "{$BUILD_LOG}"
+		mail to: "${version_stuff}", subject: 'New build is waiting for your decision', body: "Stuff"
 
         }
     }
