@@ -8,7 +8,7 @@ pipeline{
                 script {
                 version_stuff = readFile('output.txt').trim()
                 }
-                                script {
+                               script {
                     def bRun = build 'anotherJob' 
                     echo 'last 100 lines of BuildB'
                     for(String line : bRun.getRawBuild().getLog(100)){
@@ -21,6 +21,7 @@ pipeline{
             }
         }
     }
+	}
     post{
         always{
             echo "${version_stuff}"
