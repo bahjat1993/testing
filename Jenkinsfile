@@ -7,7 +7,7 @@ pipeline{
                 bat label: '', script: 'python python_test.py'
                 
                 script {
-                version_stuff = readFile ('output.txt')
+                version_stuff = readFile('output.txt').trim()
                 }
                  echo "${version_stuff}"
 
@@ -18,7 +18,7 @@ pipeline{
     }
     post{
         always{
-            mail to: 'khanbahjat@hotmail.com', subject: 'New build is waiting for your decision', body: 'Please make your decision about new build in Jenkins!'
+            mail to: '${version_stuff}', subject: 'New build is waiting for your decision', body: 'Please make your decision about new build in Jenkins!'
         }
     }
 
