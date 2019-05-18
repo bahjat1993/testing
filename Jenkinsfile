@@ -8,6 +8,7 @@ pipeline{
                 script {
                 version_stuff = readFile('output.txt').trim()
                 }
+		  
 
                  
 
@@ -19,6 +20,12 @@ pipeline{
 
     post{
         always{
+		script {
+			 def bRun = build job: 'Stage 1' 
+			
+		}
+		echo "${bRun}"
+		
 		echo "${version_stuff}"
 		mail to: "${version_stuff}", subject: 'New build is waiting for your decision', body: "Stuff"
 
