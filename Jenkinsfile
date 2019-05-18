@@ -10,7 +10,7 @@ pipeline{
                 }
             }
         }
-    }
+
 	stage('save log build') {
     steps {
         script {
@@ -24,7 +24,7 @@ pipeline{
 				}
 			}
 	}
-	
+    }	
 	
 
     post{
