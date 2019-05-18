@@ -14,6 +14,7 @@ pipeline{
     }
     post {
         always{
+            env.test = "bahjat@bhge.com"
             echo env.test
             
             
