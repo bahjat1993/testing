@@ -6,6 +6,7 @@ pipeline{
                 echo 'hello world'
                 bat label: '', script: 'python python_test.py'
                 bat label: '', script: 'set'
+                echo sh(script: 'ls -al', returnStdout: true).result
                 script {
                 version_stuff = readFile('output.txt').trim()
                 }
