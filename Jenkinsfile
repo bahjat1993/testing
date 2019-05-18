@@ -21,11 +21,7 @@ pipeline{
         always{
 		echo "${version_stuff}"
 		
-		script{
-        emailext body: '''${SCRIPT, template="build-report.groovy"}''',
-                subject: "[Jenkins] REPORT",
-                to: "khanbahjat@Hotmail.com"
-		}
+		mail to: "${version_stuff}", subject: 'New build is waiting for your decision', body: "{$BUILD_LOG}"
 
         }
     }
