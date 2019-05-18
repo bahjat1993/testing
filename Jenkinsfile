@@ -21,9 +21,7 @@ pipeline{
     post{
         always{
 		
-		script {
-                version_stuff = readFile('log').trim()
-                }
+		junit '**/target/*.xml'
 
 				
 		echo "${version_stuff}"
