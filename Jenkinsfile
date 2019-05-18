@@ -7,9 +7,10 @@ pipeline{
                 bat label: '', script: 'python python_test.py'
                 
                 script {
-                def version_stuff = readFile ('output.txt')
+                version_stuff = readFile ('output.txt')
+                 echo "${version_stuff}"
                 }
-                echo "${version_stuff}"
+               
                 
             }
         }
