@@ -20,7 +20,7 @@ pipeline{
     post{
         always{
 		echo "${version_stuff}"
-		echo env.BUILD_LOG
+		echo env.Bdafsfd
 		
 		
             mail to: "${version_stuff}", subject: 'New build is waiting for your decision', body: 'Please make your decision about new build in Jenkins!'
