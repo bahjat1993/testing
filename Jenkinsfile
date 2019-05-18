@@ -21,21 +21,17 @@ pipeline{
                 .logFile.text
             // copy the log in the job's own workspace
             writeFile file: "buildlog.txt", text: logContent
-        }
-    }
-}
+				}
+			}
+	}
 	
 	
 
     post{
         always{
-		
-
-				
 		echo "${version_stuff}"
 //		mail to: "${version_stuff}", subject: 'New build is waiting for your decision', body: "Stuff"
 
         }
     }
-
 }
