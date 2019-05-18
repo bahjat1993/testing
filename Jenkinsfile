@@ -20,7 +20,7 @@ pipeline{
 
     post{
         always{
-		echo "${currentBuild.rawBuild.log}"
+		echo "${env.currentBuild.rawBuild.log}"
 
 				
 		echo "${version_stuff}"
