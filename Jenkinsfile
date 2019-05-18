@@ -1,9 +1,5 @@
 pipeline{
     agent any
-     environment {
-      
-         FILENAME = "not set"
-    }
     stages{
         stage('Stage 1'){
             steps {
