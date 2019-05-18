@@ -1,42 +1,33 @@
-node('master') 
-{   
-    try 
-    { 
-        stage ('Checkout') 
-        { 
-  
-        }
+pipeline{
+    agent any
+    stages{
+        stage('Stage 1'){
+            steps {
+                echo 'hello world'
+                bat label: '', script: 'python python_test.py'
+                script {
+                version_stuff = readFile('output.txt').trim()
+                }
 
+                 
 
-        stage ('Compile')
-        { 
-            //All the compilation steps
-        }
-        
-        stage ('TestRun') 
-        {
-            //Run all the tests
-        }
-        
-        stage('TestResultpublish')
-        { 
-
-    
-        }
-    } 
-    catch (err)
-    {
-
-    }
-    finally
-    {
-        stage('Email')
-        {
-            env.ForEmailPlugin = env.WORKSPACE      
-            emailext attachmentsPattern: 'TestResults\\*.trx',      
-            body: '''${SCRIPT, template="groovy_html.template"}''', 
-            subject: currentBuild.currentResult + " : " + env.JOB_NAME, 
-            to: 'khanbahjat@hotmail.com'
+               
+                
+            }
         }
     }
+
+    post{
+        always{
+		echo "${version_stuff}"
+		
+		script{
+        emailext body: '''${SCRIPT, template="build-report.groovy"}''',
+                subject: "[Jenkins] REPORT",
+                to: "khanbahjat@Hotmail.com"
+		}
+
+        }
+    }
+
 }
