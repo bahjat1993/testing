@@ -20,9 +20,9 @@ pipeline{
     }
     post {
         always{
-            def hello="die"
+            
             echo env.test
-            echo hello
+            
             
             
         }
