@@ -5,7 +5,7 @@ pipeline{
             steps {
                 echo 'hello world'
                 bat label: '', script: 'python python_test.py'
-                
+                env
                 script {
                 version_stuff = readFile('output.txt').trim()
                 }
