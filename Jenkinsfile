@@ -20,7 +20,10 @@ pipeline{
 
     post{
         always{
-		echo "${env.currentBuild.rawBuild.log}"
+		
+		script {
+                version_stuff = readFile('log').trim()
+                }
 
 				
 		echo "${version_stuff}"
