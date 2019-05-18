@@ -9,7 +9,7 @@ pipeline{
                 script {
                 version_stuff = readFile('output.txt').trim()
                 }
-                 echo "${version_stuff}"
+                 
 
                
                 
@@ -18,7 +18,8 @@ pipeline{
     }
     post{
         always{
-            mail to: ${version_stuff}, subject: 'New build is waiting for your decision', body: 'Please make your decision about new build in Jenkins!'
+            echo "${version_stuff}"
+            mail to: '${version_stuff}', subject: 'New build is waiting for your decision', body: 'Please make your decision about new build in Jenkins!'
         }
     }
 
