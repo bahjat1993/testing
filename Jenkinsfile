@@ -9,7 +9,7 @@ pipeline{
             steps {
                 echo 'hello world'
                 bat label: '', script: 'python python_test.py'
-                bat label: '', script: 'python output.py'
+                env.FILENAME = readfile ('output.txt')
                 echo "${env.FILENAME}"
                 
             }
