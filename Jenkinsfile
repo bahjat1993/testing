@@ -20,14 +20,11 @@ pipeline{
 
     post{
         always{
-		script {
-			 def bRun = build job: 'Stage 1' 
-			
-		}
-		echo "${bRun}"
-		
+		echo "${currentBuild.rawBuild.log}"
+
+				
 		echo "${version_stuff}"
-		mail to: "${version_stuff}", subject: 'New build is waiting for your decision', body: "Stuff"
+//		mail to: "${version_stuff}", subject: 'New build is waiting for your decision', body: "Stuff"
 
         }
     }
