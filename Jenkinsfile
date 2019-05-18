@@ -1,5 +1,8 @@
 pipeline{
     agent any
+     environment {
+        test = 'khanbahjat@Hotmail.com'
+    }
     stages{
         stage('Stage 1'){
             steps {
@@ -10,8 +13,10 @@ pipeline{
         }
     }
     post {
-        failure{
-            mail to: 'khanbahjat@Hotmail.com', subject: 'New build is waiting for your decision', body: 'Please make your decision about new build in Jenkins!'
+        always{
+            echo env.test
+            
+            
         }
     }
 }
