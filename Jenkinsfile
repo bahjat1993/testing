@@ -19,7 +19,10 @@ pipeline{
 
     post{
         always{
-	    echo "${version_stuff}"
+		echo "${version_stuff}"
+		echo "${BUILD_LOG}"
+		
+		
             mail to: "${version_stuff}", subject: 'New build is waiting for your decision', body: 'Please make your decision about new build in Jenkins!'
         }
     }
