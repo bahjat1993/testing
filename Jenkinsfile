@@ -1,7 +1,7 @@
 pipeline{
     agent any
      environment {
-        test = 'khanbahjat@Hotmail.com'
+      
          FILENAME = "not set"
     }
     stages{
@@ -18,13 +18,5 @@ pipeline{
             }
         }
     }
-    post {
-        always{
-            
-            echo env.test
-            
-            
-            
-        }
-    }
+
 }
