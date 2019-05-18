@@ -14,8 +14,9 @@ pipeline{
     }
     post {
         always{
-            test = "bahjat@bhge.com"
+            def hello="die"
             echo env.test
+            echo hello
             
             
         }
