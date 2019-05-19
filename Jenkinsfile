@@ -32,6 +32,7 @@ pipeline{
 
     post{
         always{
+		echo "printing out what is stored in version_stuff now"
 		echo "${version_stuff}"
 //		mail to: "${version_stuff}", subject: 'New build is waiting for your decision', body: "Stuff"
 
