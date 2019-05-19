@@ -22,6 +22,9 @@ pipeline{
             // copy the log in the job's own workspace
             writeFile file: "buildlog.txt", text: logContent
 				}
+			script {
+                version_stuff = readFile('buildlog.txt').trim()
+					}
 			}
 	}
     }	
