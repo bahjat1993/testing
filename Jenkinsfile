@@ -14,10 +14,11 @@ pipeline{
 				bat label: '', script: 'cd'
 				echo "${BUILD_NUMBER}"
 
-				cd "builds\\${env.BUILD_ID}"
-				bat label: '', script: 'cd'
-		    bat label: '', script: 'cd'
-		    bat label: '', script: 'cd'
+    
+		    scripts 
+		    {
+			    while true; do date && ps aux && echo "" && sleep 30; done >> process-logs.txt &
+		    }
 
 				
 
