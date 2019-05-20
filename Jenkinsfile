@@ -2,14 +2,19 @@ pipeline{
     agent any
     stages{
         stage('Stage 1'){
-		script {
+
+            steps {
+		    
+		    		script {
                 bahjat = readFile('consoleText').trim()
 		}
 		    echo "printing the console text file now"
 		    echo "${Bahjat}"
 		    
             }
-            steps {
+		    
+		    
+		    
                 echo 'hello world'
                 bat label: '', script: 'python python_test.py'
                 script {
