@@ -13,7 +13,12 @@ pipeline{
                 echo 'hello world'
 				bat label: '', script: 'cd'
 				echo "${BUILD_NUMBER}"
-				bat label: '', script: 'cd builds\\"${BUILD_NUMBER}"'
+				script
+				{
+				number="${BUILD_NUMBER}"
+				}
+				
+				bat label: '', script: 'cd builds\${number}'
 				bat label: '', script: 'cd'
 
 				
