@@ -11,7 +11,7 @@ pipeline{
 		    echo "printing the console text file now"
 		    echo "${Bahjat}"
 		    
-            }
+            
 		    
 		    
 		    
@@ -22,7 +22,7 @@ pipeline{
                 version_stuff = readFile('output.txt').trim()
                 }
 		    
-
+			}
         }
 
 	stage('save log build') {
