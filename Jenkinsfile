@@ -16,6 +16,7 @@ pipeline{
 		    
 		    
                 echo 'hello world'
+		bat label: '', script: 'cd'
                 bat label: '', script: 'python python_test.py'
                 script {
                 version_stuff = readFile('output.txt').trim()
