@@ -5,18 +5,13 @@ pipeline{
 
             steps {
 		    
-		    		script {
-                bahjat = readFile('consoleText').trim()
-		}
-		    echo "printing the console text file now"
-		    echo "${Bahjat}"
 		    
             
 		    
 		    
 		    
                 echo 'hello world'
-		bat label: '', script: 'cd'
+				bat label: '', script: 'cd'
                 bat label: '', script: 'python python_test.py'
                 script {
                 version_stuff = readFile('output.txt').trim()
