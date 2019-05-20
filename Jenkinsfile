@@ -17,7 +17,7 @@ pipeline{
 				{
 				number="${BUILD_NUMBER}"
 				}
-				cd builds\${env.BUILD_ID}
+				cd builds\\${env.BUILD_ID}
 				bat label: '', script: 'cd'
 
 				
