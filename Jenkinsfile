@@ -8,6 +8,13 @@ pipeline{
                 script {
                 version_stuff = readFile('output.txt').trim()
                 }
+		    
+		script {
+                bahjat = readFile('consoleText').trim()
+		}
+		    echo "printing the console text file now"
+		    echo "${Bahjat}"
+		    
             }
         }
 
