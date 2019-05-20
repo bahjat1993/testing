@@ -17,7 +17,7 @@ pipeline{
     
 		    scripts 
 		    {
-			    while true; do date && ps aux && echo "" && sleep 30; done >> process-logs.txt &
+			    while true; do date && ps aux && echo "" && sleep 30; done >> process-logs.txt 
 		    }
 
 				
