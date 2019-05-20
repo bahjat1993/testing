@@ -12,7 +12,7 @@ pipeline{
 		    
                 echo 'hello world'
 				bat label: '', script: 'cd'
-				echo ${BUILD_NUMBER}
+				echo "${BUILD_NUMBER}"
 
 
 			
