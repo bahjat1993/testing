@@ -11,23 +11,18 @@ pipeline{
 		    
 		    
                 echo 'hello world'
-				bat label: '', script: 'cd'
-				echo "${BUILD_NUMBER}"
+        script 
+		{
+            def logContent = Jenkins.getInstance()
+                .getItemByFullName(env.JOB_NAME)
+                .getBuildByNumber(
+                    Integer.parseInt(env.BUILD_NUMBER))
+                .logFile.text
+            // copy the log in the job's own workspace
+            writeFile file: "buildlog.txt", text: logContent
+		}
 
-    
-		    scripts 
-		    {
-			    while ( do date && ps aux && echo "" && sleep 30; done >> process-logs.txt &)
-		    }
-
-				
-
-				
-
-
-			
-				
-                bat label: '', script: 'python python_test.py'
+			bat label: '', script: 'python python_test.py'
                 script {
                 version_stuff = readFile('output.txt').trim()
                 }
