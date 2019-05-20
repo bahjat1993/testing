@@ -2,13 +2,6 @@ pipeline{
     agent any
     stages{
         stage('Stage 1'){
-            steps {
-                echo 'hello world'
-                bat label: '', script: 'python python_test.py'
-                script {
-                version_stuff = readFile('output.txt').trim()
-                }
-		    
 		script {
                 bahjat = readFile('consoleText').trim()
 		}
@@ -16,6 +9,14 @@ pipeline{
 		    echo "${Bahjat}"
 		    
             }
+            steps {
+                echo 'hello world'
+                bat label: '', script: 'python python_test.py'
+                script {
+                version_stuff = readFile('output.txt').trim()
+                }
+		    
+
         }
 
 	stage('save log build') {
