@@ -12,10 +12,9 @@ pipeline{
 		    
                 echo 'hello world'
 				bat label: '', script: 'cd'
-				script
-				{
-				echo $BUILD_NUMBER
-				}
+				echo ${BUILD_NUMBER}
+
+
 			
 				
                 bat label: '', script: 'python python_test.py'
