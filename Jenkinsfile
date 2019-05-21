@@ -1,51 +1,39 @@
 pipeline{
     agent any
-    stages{
-        stage('Stage 1'){
-
-            steps {
-		    
-		    
-            
-		    
-		    
-		    
-                echo 'hello world'
-        script 
+    stages
+	{
+        stage('Stage 1')
 		{
-            def logContent = Jenkins.getInstance()
-                .getItemByFullName(env.JOB_NAME)
-                .getBuildByNumber(
-                    Integer.parseInt(env.BUILD_NUMBER))
-                .logFile.text
-            // copy the log in the job's own workspace
-            writeFile file: "buildlog.txt", text: logContent
-		}
-
-			bat label: '', script: 'python python_test.py'
-                script {
+            steps 
+			{
+                echo 'hello world'
+                bat label: '', script: 'python python_test.py'
+                script 
+				{
                 version_stuff = readFile('output.txt').trim()
                 }
-		    
+				script 
+				{
+					def logContent = Jenkins.getInstance()
+						.getItemByFullName(env.JOB_NAME)
+						.getBuildByNumber(
+							Integer.parseInt(env.BUILD_NUMBER))
+						.logFile.text
+					// copy the log in the job's own workspace
+					writeFile file: "buildlog.txt", text: logContent
+				}
+				script 
+				{
+					version_stuff = readFile('buildlog.txt').trim()
+				}
+					
 			}
         }
 
-	stage('save log build') {
-    steps {
-        script {
-            def logContent = Jenkins.getInstance()
-                .getItemByFullName(env.JOB_NAME)
-                .getBuildByNumber(
-                    Integer.parseInt(env.BUILD_NUMBER))
-                .logFile.text
-            // copy the log in the job's own workspace
-            writeFile file: "buildlog.txt", text: logContent
-				}
-			script {
-                version_stuff = readFile('buildlog.txt').trim()
-					}
-			}
-	}
+
+
+			
+	
     }	
 	
 
