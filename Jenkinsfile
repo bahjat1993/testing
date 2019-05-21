@@ -7,25 +7,17 @@ pipeline{
             steps 
 			{
                 echo 'hello world'
-                bat label: '', script: 'python python_test.py'
-                script 
-				{
-                version_stuff = readFile('output.txt').trim()
-                }
 
 					
 			}
         }
-
-
-
-			
-	
     }	
 	
 
-    post{
-        always{
+    post
+	{
+        always
+		{
 		echo "printing out what is stored in version_stuff now"
 		echo "${version_stuff}"
 		echo "finished printing"
